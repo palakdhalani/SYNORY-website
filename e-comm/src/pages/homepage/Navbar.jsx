@@ -3,11 +3,12 @@ import React, { useState } from 'react';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [openSearch, setOpenSearch] = useState(false);
 
   return (
     <div className="container mx-auto px-4 md:px-8 relative z-50">
       <nav className="flex items-center justify-between py-6">
-        
+
         {/* Logo */}
         <div className="flex items-center gap-3 flex-shrink-0 cursor-pointer">
           <div className="relative w-8 h-8">
@@ -21,13 +22,13 @@ const Navbar = () => {
 
         {/* Desktop Layout - Middle Sections */}
         <div className="hidden xl:flex flex-1 items-center justify-between px-12">
-          
+
           {/* Account & Icons */}
           <div className="flex items-center gap-3">
             <a href="#" className="text-[13px] font-bold text-black uppercase tracking-widest flex items-center mr-2">
               MY ACCOUNT <sup className="text-[#d2bba0] font-bold ml-1 text-xs">0</sup>
             </a>
-            <button className="w-10 h-10 rounded bg-[#d2bba0] flex items-center justify-center text-white hover:bg-[#c1aa8f] transition-colors">
+            <button onClick={() => { setOpenSearch(!openSearch) }} className="w-10 h-10 rounded bg-[#d2bba0] flex items-center justify-center text-white hover:bg-[#c1aa8f] transition-colors">
               <Search size={18} />
             </button>
             <button className="w-10 h-10 rounded bg-[#d2bba0] flex items-center justify-center text-white hover:bg-[#c1aa8f] transition-colors relative">
@@ -66,7 +67,7 @@ const Navbar = () => {
           <button className="w-10 h-10 rounded bg-[#d2bba0] flex items-center justify-center text-white">
             <ShoppingCart size={18} />
           </button>
-          <button 
+          <button
             className="p-2 text-black"
             onClick={() => setIsOpen(!isOpen)}
           >
